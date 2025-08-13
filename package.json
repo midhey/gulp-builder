@@ -1,0 +1,46 @@
+{
+  "name": "builder",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "dev:wp": "MODE=wp gulp",
+    "build:wp": "MODE=wp gulp build"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "midhey",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "browser-sync": "^3.0.4",
+    "chalk": "^5.5.0",
+    "cli-progress": "^3.12.0",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^6.0.1",
+    "gulp-webp-html-nosvg": "^1.1.1",
+    "otf2ttf": "^1.1.2",
+    "sass": "^1.89.2",
+    "ttf2woff": "^3.0.0",
+    "ttf2woff2": "^8.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "babel-loader": "^10.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^11.0.1",
+    "sharp": "^0.34.3",
+    "webpack": "^5.101.1",
+    "webpack-stream": "^7.0.0"
+  }
+}
