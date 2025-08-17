@@ -1,0 +1,26 @@
+@use "sass:math";
+@use "core/vars" as *;
+
+/* rem / em относительно базового размера */
+@function rem($px, $base: $font-size-main) {
+  @return math.div($px, $base) * 1rem;
+}
+@function em($px, $base: $font-size-main) {
+  @return math.div($px, $base) * 1em;
+}
+
+/* var(--x, fallback) с подстановкой sass-значения как фолбэка */
+@function css-var($name, $fallback: null) {
+  @if $fallback == null {
+    @return unquote("var(#{$name})");
+  }
+  @return unquote("var(#{$name}, #{$fallback})");
+}
+
+@function c-primary($fallback: $primary) {
+  @return css-var(--color-primary, $fallback);
+}
+
+@function c-secondary($fallback: $secondary) {
+  @return css-var(--color-secondary, $fallback);
+}
