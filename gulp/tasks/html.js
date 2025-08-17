@@ -10,7 +10,7 @@ export function html(cb) {
   if (MODE === "wp") return cb();
 
   return gulp
-    .src(allPaths.src.html)
+    .src(["src/*.html", "src/pages/**/*.html", "!src/components/**"])
     .pipe(fileInclude({ prefix: "@@", basepath: "@file" }))
     .pipe(replace(/@images\//g, "images/"))
     .pipe(webpHTML())

@@ -1,0 +1,30 @@
+@use "sass:math";
+@use "core/vars" as *;
+@use "core/functions" as fn;
+
+/* Процентная line-height от заданного px */
+@mixin line-height($px, $base: $font-size-main) {
+  line-height: math.div($px, $base) * 100%;
+}
+
+@mixin fluid($prop, $min, $max, $minw, $maxw) {
+  #{$prop}: clamp(
+    #{$min},
+    calc(
+      #{$min} + (#{$max} - #{$min}) *
+        ((100vw - #{$minw}) / (#{$maxw} - #{$minw}))
+    ),
+    #{$max}
+  );
+}
+
+@mixin h-fluid($min, $max, $minw: 320px, $maxw: 768px) {
+  @include fluid(font-size, fn.rem($min), fn.rem($max), $minw, $maxw);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@mixin h-base {
+  font-weight: 700;
+  line-height: 1.2;
+}

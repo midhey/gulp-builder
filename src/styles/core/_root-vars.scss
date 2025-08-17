@@ -1,0 +1,25 @@
+@use "core/vars" as *;
+
+:root {
+  /* brand colors */
+  --color-primary: #{$primary};
+  --color-secondary: #{$secondary};
+
+  /* neutrals */
+  --color-bg: #{$bg-main};
+  --color-text: #{$text};
+  --color-muted: #{$gray-dark};
+
+  /* optional accents */
+  --color-accent-1: #{$blue};
+  --color-accent-2: #{$purple};
+
+  /* typography (base) */
+  --font-family-main: #{$font-main};
+  --font-size-main: #{$font-size-main}px;
+  --line-height-main: #{$line-height-main};
+
+  /* ui */
+  --radius-main: #{$border-radius-main};
+  --shadow-main: #{$box-shadow-main};
+}

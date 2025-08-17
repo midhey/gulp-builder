@@ -1,0 +1,206 @@
+@use "core" as *;
+
+/* Базовые правила */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+img,
+svg,
+video,
+canvas,
+audio,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+
+/* Типографика по умолчанию (runtime-настраиваемая) */
+html,
+body {
+  font-family: css-var(--font-family-main, $font-main);
+  font-weight: $font-weight-main;
+  font-size: rem($font-size-main);
+  line-height: $line-height-main;
+  color: css-var(--color-text, $text);
+  background-color: css-var(--color-bg, $bg-main);
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+/* 3) Выделение текста */
+::selection {
+  background: css-var(--color-primary, $primary);
+  color: $white;
+  -webkit-text-fill-color: $white;
+}
+
+/* Контейнер-утилита */
+[class*="__container"] {
+  max-width: calc(css-var(--container-max, #{$max-width-container}px) + 30px);
+  margin-inline: auto;
+  padding-inline: 15px;
+  width: 100%;
+}
+
+/* Каркас страницы */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+}
+
+:is(h1, h2, h3, h4, h5):not([class]) {
+  @include h-base;
+  margin: 1em 0;
+}
+h1:not([class]) {
+  @include h-fluid(34, 64);
+}
+h2:not([class]) {
+  @include h-fluid(30, 48);
+}
+h3:not([class]) {
+  @include h-fluid(24, 32);
+}
+:is(h4, h5, h6):not([class]) {
+  @include h-fluid(20, 28);
+}
+:is(ul, ol, p):not([class]) {
+  @include h-fluid(16, 20);
+}
+
+ul:not([class]),
+ol:not([class]) {
+  > li {
+    position: relative;
+    padding: em(4) 0 em(4) em(16);
+  }
+  ul,
+  ol {
+    margin: em(12) 0 0 em(12);
+  }
+}
+ul:not([class]) > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.9em;
+  width: em(8);
+  height: em(8);
+  border-radius: 50%;
+  background: css-var(--color-primary, $primary);
+  transform: translateY(-50%);
+}
+
+/* Таблицы по умолчанию (скролл по оси X, мягкие бордеры) */
+table:not([class]) {
+  display: block;
+  overflow-x: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: center;
+  line-height: 1.2;
+  font-size: rem(16);
+  @include fluid(font-size, rem(12), rem(16), 360px, $tablet);
+
+  tr:first-child :is(th, td):first-child {
+    border-top-left-radius: $border-radius-main;
+  }
+  tr:first-child :is(th, td):last-child {
+    border-top-right-radius: $border-radius-main;
+  }
+  tr:last-child :is(th, td):first-child {
+    border-bottom-left-radius: $border-radius-main;
+  }
+  tr:last-child :is(th, td):last-child {
+    border-bottom-right-radius: $border-radius-main;
+  }
+}
+table:not([class]),
+table:not([class]) :is(td, th) {
+  border: 1px solid $gray;
+}
+table:not([class]) :is(td, th) {
+  border-style: none solid solid none;
+  padding: em(12);
+  min-width: rem(200);
+}
+table:not([class]) th {
+  background: css-var(--color-primary, $primary);
+  color: $white;
+  font-weight: 700;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+textarea,
+input {
+  font-size: rem(20);
+  line-height: 1.2;
+  padding: em(15) em(19);
+  border: 1px solid $gray;
+  border-radius: $border-radius-main;
+  &::placeholder {
+    color: $gray;
+  }
+  @include fluid(font-size, rem(16), rem(20), 360px, $tablet);
+}
+/* спиннеры у number */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* tap highlight (iOS) */
+a,
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* autofill (Chrome) — мягкая нейтрализация эффекта заливки */
+input:-webkit-autofill {
+  transition:
+    background-color 9999s ease-in-out 0s,
+    color 9999s ease-in-out 0s;
+}
+
+/* Фокус — единообразно и доступно */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid css-var(--color-primary, $primary);
+  outline-offset: 2px;
+}
+
+/* Снижение анимаций по запросу ОС */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
