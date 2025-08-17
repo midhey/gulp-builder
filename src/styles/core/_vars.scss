@@ -1,0 +1,75 @@
+/* Layout */
+$max-width: 1440;
+$max-width-container: 1140;
+
+/* Colors */
+$black: #000000;
+$dark: #090a15;
+$white: #ffffff;
+$gray: rgba(245, 251, 255, 0.54);
+$gray-dark: #8f8f8f;
+$gray-light: #dce2eb;
+$blue: #00bcf0;
+$blue-light: #b2daff;
+$red: #ff0000;
+$green: #11ff00;
+$orange: #ff9000;
+$purple-light: #dfe0ff;
+$purple: #501acc;
+$purple-dark: #3d3e4f;
+$text: #243a43;
+$disabled: #e3e3e3;
+$bg-main: #e7eff4;
+$white-stroke: linear-gradient(
+  125deg,
+  rgba(255, 255, 255, 0.91) 18.4%,
+  rgba(231, 244, 251, 0.57) 84.29%
+);
+$glass: linear-gradient(
+  105deg,
+  rgba(255, 255, 255, 0.12) 2.91%,
+  rgba(98, 161, 221, 0.09) 49.12%,
+  rgba(167, 226, 255, 0.14) 98.08%
+);
+$blue-gradient: linear-gradient(
+  110deg,
+  #d5f2ff -4.04%,
+  #c1f2ff 47.65%,
+  #98e4ff 95.52%
+);
+$white-purple-gradient: linear-gradient(
+  180deg,
+  #fff 0%,
+  #fbf5ff 25%,
+  #c975fa 62.02%,
+  #4507ff 100%
+);
+$pink: #fef0ff;
+
+/* Aliases */
+$primary: $blue;
+$secondary: $purple;
+
+/* UI */
+$box-shadow-main: 0 0 20px rgba(0, 0, 0, 0.05);
+$border-radius-main: 15px;
+$border-color-main: $gray-light;
+
+/* Typography */
+$font-main: OpenSans, sans-serif;
+$font-weight-main: 500;
+$font-size-main: 20; // px
+$font-color-main: $text;
+$line-height-main: 1.4;
+
+/* Breakpoints */
+$mobile: 575.8px;
+$tablet: 767.8px;
+$tablet-l: 991.8px;
+$laptop: 1200px;
+$laptop-l: 1500px;
+
+/* Flags */
+$burger-at: $tablet-l;
+$support-old-browser: false;
+$support-prefers-reduced-motion: false;
