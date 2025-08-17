@@ -2,31 +2,54 @@
 # Project Makefile
 # ========================
 
-# Установка зависимостей
+.PHONY: install dev build wp wp-build images fonts clean clean-deep audit help
+SHELL := /bin/sh
+
+# ---------- Help ----------
+help:
+	@echo "Targets:"
+	@echo "  install     - npm install"
+	@echo "  dev         - run dev server (gulp)"
+	@echo "  build       - production build"
+	@echo "  wp          - dev build for WordPress (assets only)"
+	@echo "  wp-build    - production build for WordPress (assets only)"
+	@echo "  images      - optimize images via gulp"
+	@echo "  fonts       - convert fonts via tools/convert-fonts.js"
+	@echo "  clean       - remove dist/theme assets"
+	@echo "  clean-deep  - remove node_modules + lock + dist"
+	@echo "  audit       - npm audit (optional)"
+
+# ---------- Install ----------
 install:
 	npm install
 
-# -------- Development --------
+# ---------- Development ----------
 dev:
 	npm run dev
 
-# -------- Production Build --------
+# ---------- Production Build ----------
 build:
 	npm run build
 
-# -------- WordPress Build --------
+# ---------- WordPress ----------
 wp:
-	MODE=wp npm run wp
+	npm run dev:wp
 
-# -------- Assets Optimization --------
+wp-build:
+	npm run build:wp
+
+# ---------- Assets ----------
 fonts:
-	node tools/convert-fonts.js
+	npm run fonts:convert
 
-images:
-	node tools/optimize-images.js
-
-optimize: fonts images
-
-# -------- Cleanup --------
+# ---------- Cleanup ----------
 clean:
 	rm -rf dist theme/assets
+
+# Полная чистка проекта
+clean-deep:
+	rm -rf node_modules package-lock.json dist theme/assets
+
+# ---------- Misc ----------
+audit:
+	npm audit || true
