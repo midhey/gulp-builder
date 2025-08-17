@@ -12,3 +12,14 @@
   $intercept: $min - ($slope * 1vw);
   #{$prop}: clamp(#{$min}, #{$intercept} + #{$slope}vw, #{$max});
 }
+
+@mixin h-fluid($min, $max, $minw: 320px, $maxw: 768px) {
+  @include fluid(font-size, fn.rem($min), fn.rem($max), $minw, $maxw);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@mixin h-base {
+  font-weight: 700;
+  line-height: 1.2;
+}
