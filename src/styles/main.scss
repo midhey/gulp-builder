@@ -1,3 +1,7 @@
+@use "core/root-vars";
 @use "base/_reset";
 @use "base/_fonts";
-@use "blocks/header" @use "blocks/footer";
+
+//Blocks
+@use "blocks/header";
+@use "blocks/footer";
