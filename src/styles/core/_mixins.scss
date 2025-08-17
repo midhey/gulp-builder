@@ -7,10 +7,15 @@
   line-height: math.div($px, $base) * 100%;
 }
 
-@mixin fluid($prop, $min, $max, $minw: 320px, $maxw: 1440px) {
-  $slope: (strip-unit($max - $min)) / (strip-unit($maxw - $minw)) * 100;
-  $intercept: $min - ($slope * 1vw);
-  #{$prop}: clamp(#{$min}, #{$intercept} + #{$slope}vw, #{$max});
+@mixin fluid($prop, $min, $max, $minw, $maxw) {
+  #{$prop}: clamp(
+    #{$min},
+    calc(
+      #{$min} + (#{$max} - #{$min}) *
+        ((100vw - #{$minw}) / (#{$maxw} - #{$minw}))
+    ),
+    #{$max}
+  );
 }
 
 @mixin h-fluid($min, $max, $minw: 320px, $maxw: 768px) {
