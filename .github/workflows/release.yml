@@ -1,0 +1,22 @@
+name: Release Please
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Release Please (Node)
+        uses: google-github-actions/release-please-action@v4
+        with:
+          release-type: node
+          package-name: gulp-builder
+          token: ${{ secrets.GITHUB_TOKEN }}
