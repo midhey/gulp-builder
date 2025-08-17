@@ -1,0 +1,14 @@
+@use "sass:math";
+@use "core/vars" as *;
+@use "core/functions" as fn;
+
+/* Процентная line-height от заданного px */
+@mixin line-height($px, $base: $font-size-main) {
+  line-height: math.div($px, $base) * 100%;
+}
+
+@mixin fluid($prop, $min, $max, $minw: 320px, $maxw: 1440px) {
+  $slope: (strip-unit($max - $min)) / (strip-unit($maxw - $minw)) * 100;
+  $intercept: $min - ($slope * 1vw);
+  #{$prop}: clamp(#{$min}, #{$intercept} + #{$slope}vw, #{$max});
+}
