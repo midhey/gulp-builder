@@ -1,0 +1,57 @@
+@use "core" as *;
+
+/* Скролл-лок (общий случай) */
+html.lock,
+body.lock {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Скролл-лок для iOS Safari */
+html.safari-lock,
+body.safari-lock {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Визуально скрыто, но доступно для скринридеров */
+.visually-hidden,
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Прелоад/динамический адаптив: временно скрываем элементы по брейкам */
+.js-loading {
+  @media (max-width: $tablet-l) {
+    [data-da*="991"] {
+      display: none !important;
+    }
+  }
+  @media (max-width: $tablet) {
+    [data-da*="767"] {
+      display: none !important;
+    }
+  }
+  @media (max-width: $mobile) {
+    [data-da*="575"] {
+      display: none !important;
+    }
+  }
+}
+
+/* Хелперы видимости */
+.form-checkbox-none,
+[hidden],
+.hide {
+  display: none !important;
+}

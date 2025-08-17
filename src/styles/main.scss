@@ -1,9 +1,14 @@
+//Core
 @use "core/root-vars";
-@use "base/fonts";
 
+//Base
+@use "base/fonts";
 @use "base/global";
 @use "base/reset";
 
 //Blocks
 @use "blocks/header";
 @use "blocks/footer";
+
+//Utilities
+@use "base/utilities";
