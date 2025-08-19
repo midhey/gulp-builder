@@ -21,7 +21,9 @@ export function scripts() {
     output: {
       filename,
       library: { type: "var", name: "App" },
+      chunkFormat: "array-push",
     },
+    target: "web",
     devtool: isProd ? false : "source-map",
     module: {
       rules: [
