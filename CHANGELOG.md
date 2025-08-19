@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/midhey/gulp-builder/compare/v1.0.1...v1.0.2) (2025-08-19)
+
+
+### Bug Fixes
+
+* **fonts:** rework fonts tools and tasks ([4539860](https://github.com/midhey/gulp-builder/commit/4539860a678cd2ed3625353d1ccabaf0cd690b30))
+
 ## [1.0.1](https://github.com/midhey/gulp-builder/compare/v1.0.0...v1.0.1) (2025-08-19)
 
 
