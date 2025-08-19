@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/midhey/gulp-builder/compare/v1.0.0...v1.0.1) (2025-08-19)
+
+
+### Bug Fixes
+
+* **tasks:** change script task ([b2a1c64](https://github.com/midhey/gulp-builder/commit/b2a1c64ad5df0373c38aa7188ce2430173739402))
+
 ## 1.0.0 (2025-08-17)
 
 
