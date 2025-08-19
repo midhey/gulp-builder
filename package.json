@@ -11,8 +11,7 @@
   },
   "browserslist": [
     "defaults",
-    "not IE 11",
-    "maintained node versions"
+    "not IE 11"
   ],
   "engines": {
     "node": ">=18.0.0"
