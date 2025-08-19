@@ -9,7 +9,7 @@ export const paths = {
     jsEntry: "src/js/main.js",
     images: "src/images/**/*.{png,jpg,jpeg,svg,gif,ico}",
     imagesRaster: "src/images/**/*.{png,jpg,jpeg}",
-    fonts: "src/fonts/**/*.{ttf,otf}",
+    fonts: "src/fonts/**/*.{woff,woff2}",
   },
   build: {
     root: "dist",
