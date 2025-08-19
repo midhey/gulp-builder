@@ -13,7 +13,7 @@ const paths = allPaths[MODE];
 
 export const build = gulp.series(
   clean(paths.root),
-  gulp.parallel(styles, scripts, html, fonts, images),
+  gulp.parallel(styles, scripts, html, images, fonts),
 );
 
 export function serve() {
